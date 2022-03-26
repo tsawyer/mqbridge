@@ -1,0 +1,46 @@
+#docker-compose.yml for mqbridge
+#Copywrite WD6AWP 2022
+
+version: '2'
+services:
+   site1:
+      container_name: qb1
+      # privileged allows /run to mount and openrc to run. 
+      privileged: true
+      hostname: qb1
+      cpu_shares: 1024
+      mem_reservation: 600m
+      volumes:
+         - './site1:/opt/P25Gateway/etc'
+      image: 'wd6awp/qbridge:1.0'
+      restart: "unless-stopped"
+      networks:
+         qb_net:
+            ipv4_address: 192.168.1.61
+
+   site2:
+      container_name: qb2
+      privileged: true
+      hostname: qb2
+      cpu_shares: 1024
+      mem_reservation: 600m
+      volumes:
+         - './site2:/opt/P25Gateway/etc'
+      image: 'wd6awp/qbridge:1.0'
+      restart: "unless-stopped"
+      networks:
+         qb_net:
+            ipv4_address: 192.168.1.62
+ 
+networks:
+  qb_net:
+      driver: ipvlan
+      driver_opts:
+         parent: eth0
+         ipvlan_mode: l2
+      ipam:
+         driver: default
+         config:
+            - subnet: 192.168.1.0/24
+              gateway: 192.168.1.1
+
