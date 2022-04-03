@@ -1,7 +1,7 @@
 # Mqbridge
 2022-03-26
 
-The purpose of mqbridge (multi-qbridge) is to network mutiple Quantars on one host in a central location to ease installion, maintaince and operations. Mqbridge may serve as an alternative to an AstroTAC Comparator in non-voting applications. Mqbridge is a Docker image containing the Quantar to CISCO connector known as qbridge by VK2ERG and P25Gateway by G4KLX. Each container created from the qbridge image independently networks one Quantar allowing for operation excatly like an individual qbridge host. Qbridge and P25Gateway are binary executables compiled to run under an Alpine Linux container. 
+The purpose of mqbridge (multi-qbridge) is to network mutiple Quantars on one host in a central location to ease installation, maintaince and operations. Mqbridge may serve as an alternative to an AstroTAC Comparator in non-voting applications. Mqbridge is a Docker image containing the Quantar to CISCO connector known as qbridge by VK2ERG and P25Gateway by G4KLX. Each container created from the qbridge image independently networks one Quantar allowing for operation excatly like an individual qbridge host. Qbridge and P25Gateway are binary executables compiled to run under an Alpine Linux container. 
 
 If you have an understanding of P25Gateway and docker-compose you can probably look at docker-compose.yml and install without all the details provided here. Otherwise I hope I've shortened your learing curve.
 
@@ -42,4 +42,4 @@ Mqbridge is operated with the `docker-compose` command. You must be in the direc
 
 ## Thoughts
 - A dashboard supporting all containers wouid be ideal. Perhaps a small dashboard inside each container would be acceptable. If you build such a thing would you please share it with all of us?
-- Of course your milage may vary and none of this is guaranteed to work. But it likely will and for what it's worth there are more lines of documentation here than there are lines of code. It took me about three weeks to figure out Docker, Docker-compose and to build this app. I've found that it's a very nice method of building, distrupiting and operating applications. I know I've deviated from Docker norms, particulary in using openrc. But it seemed silly to create separate qbridge and P25Gateway images per the 'acceptable' method. 
+- Of course your mileage may vary and none of this is guaranteed to work. But it likely will and for what it's worth there are more lines of documentation here than there are lines of code. It took me about three weeks to figure out Docker, Docker-compose and to build this app. I've found that it's a very nice method of building, distrupiting and operating applications. I know I've deviated from Docker norms, particulary in using openrc. But it seemed silly to create separate qbridge and P25Gateway images per the 'acceptable' method. 
