@@ -12,11 +12,11 @@ services:
       mem_reservation: 600m
       volumes:
          - './site1:/opt/P25Gateway/etc'
-      image: 'wd6awp/qbridge:1.0'
+      image: 'wd6awp/qbridge:latest'
       restart: "unless-stopped"
       networks:
          qb_net:
-            ipv4_address: 192.168.1.61
+            ipv4_address: 192.168.0.61
 
    site2:
       container_name: qb2
@@ -26,11 +26,11 @@ services:
       mem_reservation: 600m
       volumes:
          - './site2:/opt/P25Gateway/etc'
-      image: 'wd6awp/qbridge:1.0'
+      image: 'wd6awp/qbridge:latest'
       restart: "unless-stopped"
       networks:
          qb_net:
-            ipv4_address: 192.168.1.62
+            ipv4_address: 192.168.0.62
  
 networks:
   qb_net:
@@ -41,6 +41,6 @@ networks:
       ipam:
          driver: default
          config:
-            - subnet: 192.168.1.0/24
-              gateway: 192.168.1.1
+            - subnet: 192.168.0.0/24
+              gateway: 192.168.0.1
 

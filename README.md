@@ -1,5 +1,7 @@
 # Mqbridge
-2022-03-26
+2022-04-11 version 1.01
+
+Version 1.01 fix for analog mute.
 
 The purpose of mqbridge (multi-qbridge) is to network mutiple Quantars on one host in a central location to ease installation, maintaince and operations. Mqbridge may serve as an alternative to an AstroTAC Comparator in non-voting applications. Mqbridge is a Docker image containing the Quantar to CISCO connector known as qbridge by VK2ERG and P25Gateway by G4KLX. Each container created from the qbridge image independently networks one Quantar allowing for operation excatly like an individual qbridge host. Qbridge and P25Gateway are binary executables compiled to run under an Alpine Linux container. 
 
@@ -37,7 +39,7 @@ Mqbridge is operated with the `docker-compose` command. You must be in the direc
 - A container may by entered with `docker-compose exec site ash` where 'site' is the example site1 or site2. The P25Gateway logs are in /var/log/. P25Gateway and qbridge apps are in /opt. 
 
 ## Please note
-- VK2ERG qbridge is intended to be run on P25 only systems. It will cause problems on dual mode analog/P25 systems. Qbridge may be changed to the DVServer Quantar Bridge in future mqbridge releases. Also this version of P25Gateway is older and does not have the multiple static talkgroup capability. This may be changed in future mqbridge releases. Both these trade-off were chosen to keep the containers as small as possible.
+- Qbridge may be changed to the DVServer Quantar Bridge in future mqbridge releases. Also this version of P25Gateway is older and does not have the multiple static talkgroup capability. This may be changed in future mqbridge releases. Both these trade-off were chosen to keep the containers as small as possible.
 - There are many ways to do Docker networking and it's a complex subject. This way assumes your host is behind a NAT router and allows docker-compose to give an accessible IP address to each container. Your Quantar network may require a VPN and VLAN. That's beyond the scope of this documentation. 
 
 ## Thoughts
